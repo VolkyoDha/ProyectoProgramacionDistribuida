@@ -1,0 +1,41 @@
+http:
+  port: 8080
+
+apiEndpoints:
+  users:
+    host: '*'
+    paths: '/users/*'
+  subscriptions:
+    host: '*'
+    paths: '/subscriptions/*'
+  roles:
+    host: '*'
+    paths: '/roles/*'
+  export:
+    host: '*'
+    paths: '/export/*'
+
+serviceEndpoints:
+  userService:
+    url: 'http://localhost:5022'
+  subscriptionService:
+    url: 'http://localhost:5022'
+  roleService:
+    url: 'http://localhost:5023'
+  exportService:
+    url: 'http://localhost:5024'
+
+policies:
+  - proxy
+
+pipelines:
+  default:
+    apiEndpoints:
+      - users
+      - subscriptions
+      - roles
+      - export
+    policies:
+      - proxy:
+          - action:
+              serviceEndpoint: ${apiEndpoint.name}Service
