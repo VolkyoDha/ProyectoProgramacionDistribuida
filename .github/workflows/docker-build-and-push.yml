@@ -55,4 +55,4 @@ jobs:
         with:
           context: ./${{ matrix.service }}
           push: true
-          tags: ${{ secrets.DOCKER_USR }}/${{ matrix.service }}:latest
+          tags: ${{ secrets.DOCKER_USERNAME }}/${{ matrix.service }}:latest
