@@ -1,5 +1,4 @@
 const { Parser } = require('json2csv');
-const User = require('../models/userModel'); // Asumiendo que el modelo de usuario se define en otra parte
 
 const exportData = async (req, res) => {
     try {
