@@ -14,8 +14,10 @@ jobs:
         service:
           - admin-management-service
           - analytics-service
+          - api-gateway-service
           - audit-service
           - auth-service
+          - backup-service
           - budgeting-service
           - currency-conversion-service
           - data-export-service

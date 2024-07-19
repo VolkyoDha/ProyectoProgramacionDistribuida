@@ -1,0 +1,251 @@
+version: '3.8'
+
+services:
+  mongo:
+    image: mongo:latest
+    container_name: mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+
+  admin-management-service:
+    image: volkyodha/admin-management-service:latest
+    container_name: admin-management-service
+    ports:
+      - "5007:5007"
+    environment:
+      - MONGO_URL=mongodb://mongo:27017/test
+    depends_on:
+      - mongo
+
+  analytics-service:
+    image: volkyodha/analytics-service:latest
+    container_name: analytics-service
+    ports:
+      - "5013:5013"
+    environment:
+      - MONGO_URL=mongodb://mongo:27017/test
+    depends_on:
+      - mongo
+
+  api-gateway-service:
+    build: volkyodha/api-gateway-service:latest
+    container_name: api-gateway-service
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mongo
+
+  audit-service:
+    image: volkyodha/audit-service:latest
+    container_name: audit-service
+    ports:
+      - "5011:5011"
+    environment:
+      - MONGO_URL=mongodb://mongo:27017/test
+    depends_on:
+      - mongo
+
+  auth-service:
+    image: volkyodha/auth-service:latest
+    container_name: auth-service
+    ports:
+      - "5000:5000"
+    environment:
+      - MONGO_URL=mongodb://mongo:27017/test
+    depends_on:
+      - mongo
+
+  backup-service:
+    image: volkyodha/backup-service:latest
+    container_name: backup-service
+    ports:
+      - "5019:5019"
+    environment:
+      - MONGO_URL=mongodb://mongo:27017/test
+    depends_on:
+      - mongo
+
+  budgeting-service:
+    image: volkyodha/budgeting-service:latest
+    container_name: budgeting-service
+    ports:
+      - "5006:5006"
+    environment:
+      - MONGO_URL=mongodb://mongo:27017/test
+    depends_on:
+      - mongo
+
+  currency-conversion-service:
+    image: volkyodha/currency-conversion-service:latest
+    container_name: currency-conversion-service
+    ports:
+      - "5015:5015"
+    environment:
+      - MONGO_URL=mongodb://mongo:27017/test
+    depends_on:
+      - mongo
+
+  data-export-service:
+    image: volkyodha/data-export-service:latest
+    container_name: data-export-service
+    ports:
+      - "5024:5024"
+    environment:
+      - MONGO_URL=mongodb://mongo:27017/test
+    depends_on:
+      - mongo
+
+  feedback-service:
+    image: volkyodha/feedback-service:latest
+    container_name: feedback-service
+    ports:
+      - "5018:5018"
+    environment:
+      - MONGO_URL=mongodb://mongo:27017/test
+    depends_on:
+      - mongo
+
+  health-check-service:
+    image: volkyodha/health-check-service:latest
+    container_name: health-check-service
+    ports:
+      - "5009:5009"
+    environment:
+      - MONGO_URL=mongodb://mongo:27017/test
+    depends_on:
+      - mongo
+
+  income-management-service:
+    image: volkyodha/income-management-service:latest
+    container_name: income-management-service
+    ports:
+      - "5005:5005"
+    environment:
+      - MONGO_URL=mongodb://mongo:27017/test
+    depends_on:
+      - mongo
+
+  income-source-service:
+    image: volkyodha/income-source-service:latest
+    container_name: income-source-service
+    ports:
+      - "5002:5002"
+    environment:
+      - MONGO_URL=mongodb://mongo:27017/test
+    depends_on:
+      - mongo
+
+  logging-service:
+    image: volkyodha/logging-service:latest
+    container_name: logging-service
+    ports:
+      - "5012:5012"
+    environment:
+      - MONGO_URL=mongodb://mongo:27017/test
+    depends_on:
+      - mongo
+
+  notification-service:
+    image: volkyodha/notification-service:latest
+    container_name: notification-service
+    ports:
+      - "5010:5010"
+    environment:
+      - MONGO_URL=mongodb://mongo:27017/test
+    depends_on:
+      - mongo
+
+  reporting-service:
+    image: volkyodha/reporting-service:latest
+    container_name: reporting-service
+    ports:
+      - "5008:5008"
+    environment:
+      - MONGO_URL=mongodb://mongo:27017/test
+    depends_on:
+      - mongo
+
+  role-management-service:
+    image: volkyodha/role-management-service:latest
+    container_name: role-management-service
+    ports:
+      - "5023:5023"
+    environment:
+      - MONGO_URL=mongodb://mongo:27017/test
+    depends_on:
+      - mongo
+
+  savings-goals-service:
+    image: volkyodha/savings-goals-service:latest
+    container_name: savings-goals-service
+    ports:
+      - "5003:5003"
+    environment:
+      - MONGO_URL=mongodb://mongo:27017/test
+    depends_on:
+      - mongo
+
+  subscription-management-service:
+    image: volkyodha/subscription-management-service:latest
+    container_name: subscription-management-service
+    ports:
+      - "5022:5022"
+    environment:
+      - MONGO_URL=mongodb://mongo:27017/test
+    depends_on:
+      - mongo
+
+  subscriptions-debts-service:
+    image: volkyodha/subscriptions-debts-service:latest
+    container_name: subscriptions-debts-service
+    ports:
+      - "5004:5004"
+    environment:
+      - MONGO_URL=mongodb://mongo:27017/test
+    depends_on:
+      - mongo
+
+  support-ticket-service:
+    image: volkyodha/support-ticket-service:latest
+    container_name: support-ticket-service
+    ports:
+      - "5017:5017"
+    environment:
+      - MONGO_URL=mongodb://mongo:27017/test
+    depends_on:
+      - mongo
+
+  transaction-service:
+    image: volkyodha/transaction-service:latest
+    container_name: transaction-service
+    ports:
+      - "5014:5014"
+    environment:
+      - MONGO_URL=mongodb://mongo:27017/test
+    depends_on:
+      - mongo
+
+  user-management-service:
+    image: volkyodha/user-management-service:latest
+    container_name: user-management-service
+    ports:
+      - "5001:5001"
+    environment:
+      - MONGO_URL=mongodb://mongo:27017/test
+    depends_on:
+      - mongo
+
+  user-preferences-service:
+    image: volkyodha/user-preferences-service:latest
+    container_name: user-preferences-service
+    ports:
+      - "5016:5016"
+    environment:
+      - MONGO_URL=mongodb://mongo:27017/test
+    depends_on:
+      - mongo
+
+volumes:
+  mongo-data:

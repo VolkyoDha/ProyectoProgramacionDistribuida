@@ -17,7 +17,7 @@ apiEndpoints:
 
 serviceEndpoints:
   userService:
-    url: 'http://localhost:5022'
+    url: 'http://localhost:5001'
   subscriptionService:
     url: 'http://localhost:5022'
   roleService:

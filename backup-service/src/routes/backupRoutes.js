@@ -1,7 +1,8 @@
-PORT=5019
-MONGODB_URI=your_mongodb_connection_string
-DB_NAME=your_database_name
-AWS_ACCESS_KEY_ID=your_aws_access_key_id
-AWS_SECRET_ACCESS_KEY=your_aws_secret_access_key
-AWS_REGION=your_aws_region
-S3_BUCKET_NAME=your_s3_bucket_name
+const express = require('express');
+const { backupDatabase } = require('../controllers/backupController');
+
+const router = express.Router();
+
+router.post('/', backupDatabase);
+
+module.exports = router;
