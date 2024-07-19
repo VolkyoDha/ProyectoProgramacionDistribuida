@@ -16,7 +16,7 @@ jobs:
           - analytics-service
           - audit-service
           - auth-service
-          - budgeting service
+          - budgeting-service
           - currency-conversion-service
           - data-export-service
           - feedback-service
