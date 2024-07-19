@@ -38,4 +38,13 @@ pipelines:
     policies:
       - proxy:
           - action:
-              serviceEndpoint: ${apiEndpoint.name}Service
+              serviceEndpoint: userService
+      - proxy:
+          - action:
+              serviceEndpoint: subscriptionService
+      - proxy:
+          - action:
+              serviceEndpoint: roleService
+      - proxy:
+          - action:
+              serviceEndpoint: exportService
