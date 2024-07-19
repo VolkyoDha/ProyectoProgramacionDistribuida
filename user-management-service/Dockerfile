@@ -13,8 +13,6 @@ RUN npm install
 # Copia el resto de los archivos de la aplicación
 COPY . .
 
-# Copia el archivo .env
-COPY .env .env
 
 # Expone el puerto que la aplicación usará
 EXPOSE 5001
