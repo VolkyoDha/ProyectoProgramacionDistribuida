@@ -29,13 +29,6 @@ services:
     depends_on:
       - mongo
 
-  api-gateway-service:
-    build: volkyodha/api-gateway-service:latest
-    container_name: api-gateway-service
-    ports:
-      - "8080:8080"
-    depends_on:
-      - mongo
 
   audit-service:
     image: volkyodha/audit-service:latest
